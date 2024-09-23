@@ -1,0 +1,36 @@
+BioBERT is a model pre-trained with BERT but fine-tuned for biomedical text mining tasks like NER, QA, or even relation extraction. BioBERT adapts BERT's architecturally core transformer backbone to the biomedical domain using such large datasets as PubMed and PMC.
+
+Dataset information:
+PubMed Abstracts: Biomedical research abstracts.
+PMC Full-text Articles: Full-length biomedical research papers.
+
+
+Features:
+Pre-training: Built on BERT, pre-trained with large-scale biomedical corpora.
+Fine-tuning: Can be fine-tuned for various downstream tasks (NER, QA, etc.).
+Applicability: Specialized for biomedical natural language processing (NLP) tasks.
+
+Setup:
+Clone Repo
+git clone https://github.com/cloudscaleinc/biobert-fork.git
+Install dependencies
+pip install -r requirements.txt
+
+Each layer comprises self-attention mechanisms that enable the model to capture contextual relationships between words in a sentence.
+Layers: 12 Transformer encoder layers for BioBERT-Base, 24 for BioBERT-Large.
+Hidden Units: 768 for BioBERT-Base, 1024 for BioBERT-Large.
+Self-Attention Heads: 12 attention heads for Base, 16 for Large.
+Feed-Forward Neural Networks: 3072 for Base, 4096 for Large.
+Parameters: BioBERT-Base has 110M parameters, while BioBERT-Large has 345M parameters.
+
+Training Parameters:
+
+max_seq_length: Length of input sequences. BioBERT, by default, tends to use a max_seq_length of 512 tokens.
+train_batch_size: It depends on the GPU memory. So, generally increasing the batch size increases more usage of memory.
+learning_rate: The default learning rate is 5e-5, but the setting could depend on the task.
+num_train_epochs: Fine-tuning usually has 3-5 epochs.
+warmup_proportion: The fraction of training steps used for learning rate warmup, default 0.1.
+
+
+The repository follows an open-source license, making it free to use with attribution. Ensure compliance with the terms before modifying or distributing
+
